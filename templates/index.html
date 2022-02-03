@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo List</title>
+    <link rel="stylesheet" href="{% static 'style/index.css' %}">
+    <link rel="stylesheet" href="{% static 'style/media.css' %}">
+</head>
+<body>
+    <header>
+        <h2>ToDo List</h2>
+    </header>
+    <main>
+        <div class="container">
+            <section class="section-1">
+                <div class="container">
+                    <div class="card">
+                        <form method="POST">
+                            {% csrf_token %}
+                            <div class="input-div">
+                                <input type="text" name="task_name" id="task_name" placeholder="Name of task" required>
+                            </div>
+                            <div class="input-div">
+                                <input type="text" name="task_priority" id="task_priority" placeholder="Priority" required>
+                            </div>
+                            <div class="submit-div">
+                                <button type="submit">ADD</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>    
+            </section>
+            <section class="section-2">
+                <div class="container">
+                    {% for task in tasks %}
+                    <div class="task-card">
+                        <div class="name card-elment">{{task.name}}</div>
+                        <div class="priority card-element">{{task.priority}}</div>
+                        <div class="date card-element">{{task.date}}</div>
+                        <div class="button card-element">
+                            <a href="delete/{{task.id}}"><button>Done</button></a>
+                            <div class="time">{{task.time}}</div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </section>
+        </div>
+    </main>
+</body>
+</html>

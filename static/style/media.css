@@ -1,0 +1,8 @@
+@media(max-width: 550px){
+    main .container{
+        flex-wrap: wrap;
+    }
+    .section-1, .section-2{
+        width: 100%;
+    }
+}
