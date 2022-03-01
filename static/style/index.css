@@ -19,6 +19,7 @@
 }
 /* colour varriable end */
 
+/*dark-mode color*/
 .dark-theme{
     color: white;
     --card-bg: #222831;
@@ -31,6 +32,8 @@
 }
 /* dark-mode color end */
 
+
+/*scroll bar*/
 .section-2::-webkit-scrollbar{
     width: 1vw;
 }
@@ -44,7 +47,7 @@
 }
 /* scroll bar end */
 
-
+/*header*/
 header{
     display: flex;
     align-items: center;
@@ -96,6 +99,7 @@ main .container{
     padding: .4em;
     border: solid 1px var(--input-border);
     background-color: var(--input-bg);
+    color: var(--placeholder-color);
 }
 
 ::placeholder{
