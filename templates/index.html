@@ -18,7 +18,7 @@
             <section class="section-1">
                 <div class="container">
                     <div class="card">
-                        <form method="POST">
+                        <form method="POST" action="{% url 'add_task' %}">
                             {% csrf_token %}
                             <div class="input-div">
                                 <input type="text" name="task_name" id="task_name" placeholder="Name of task" required>
@@ -32,8 +32,7 @@
                         </form>
                     </div>
                     <div class="dark-mode">
-                        <input type="checkbox" name="dark" id="dark" onclick="tog()">
-                        <label for="dark" id="label">Night</label>
+                        <button onclick="tog()" id="dark-button">Night</button>
                     </div>
                 </div>    
             </section>

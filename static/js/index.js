@@ -7,19 +7,24 @@
 //     }
 // }
 
-const body = document.body;
+const body = document.querySelector("body");
+const darkMode = document.getElementById('dark-button');
+const button = document.getElementById('dark-button');
 function tog(){
     if (body.classList.contains('dark-theme')){
         body.classList.remove('dark-theme');
         localStorage.setItem("theme","light");
-        document.getElementById('label').innerHTML = 'Night';
+        button.innerHTML = 'Night';
+        darkMode.style.backgroundColor = "#222831";
     }else{
         body.classList.add('dark-theme');
-        localStorage.setItem("theme","dark-theme");
-        document.getElementById('label').innerHTML = 'Day';
+        button.innerHTML = 'Day';
+        darkMode.style.backgroundColor = "whitesmoke";
+        localStorage.setItem("theme","dark");
     }
 }
-if (localStorage.getItem("theme") === "dark-theme"){
-        body.classList.add("dark-theme");
-        document.getElementById('label').innerHTML = 'Day';
-    }
+if (localStorage.getItem("theme") === "dark"){
+    body.classList.add("dark-theme");
+    darkMode.style.backgroundColor = "whitesmoke";
+    button.innerHTML = 'Day';
+}

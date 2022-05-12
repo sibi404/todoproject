@@ -16,6 +16,8 @@
     --scroll-track: whitesmoke;
     --scroll-thumb: grey;
     --footer-bg: #161C1C;
+    --dark-btn: #222831;
+    --dark-label-color: whitesmoke;
 }
 /* colour varriable end */
 
@@ -29,6 +31,7 @@
     --input-border: #5e5e5e;
     --scroll-track: #393E46;
     --scroll-thumb: #222831;
+    --dark-label-color: black;
 }
 /* dark-mode color end */
 
@@ -60,6 +63,7 @@ header{
 }
 /* header end */
 
+/*section-1*/
 main .container{
     display: flex;
 }
@@ -116,10 +120,12 @@ main .container{
     border: none;
     background-color: green;
     color: var(--text-color);
+    border-radius: 8px;
     cursor: pointer;
 }
 /* section-1 end */
 
+/*section-2*/
 .section-2{
     height: 80vh;
     overflow: scroll;
@@ -180,6 +186,7 @@ footer a{
     text-decoration: none;
 }
 
+/*dark-mode*/
 .dark-mode{
     position: absolute;
     /* top: 0;
@@ -187,9 +194,14 @@ footer a{
     bottom: 20px;
     left: 20px;
 }
-.dark-mode label{
+
+.dark-mode button{
     cursor: pointer;
+    padding: 1em;
+    border-radius: .5em;
+    border: none;
+    font-weight: bold;
+    background-color: var(--dark-btn);
+    color: var(--dark-label-color);
 }
-.dark-mode input{
-    display: none;
-}
+/*dark-mode end*/
