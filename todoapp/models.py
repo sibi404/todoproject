@@ -8,3 +8,4 @@ class Task(models.Model):
     priority = models.IntegerField()
     date = models.DateField(default = datetime.date.today)
     time = models.TimeField(auto_now_add = True)
+    complete = models.BooleanField(default = False);

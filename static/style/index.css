@@ -133,6 +133,7 @@ main .container{
 }
 
 .section-2 .container{
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
 }
@@ -142,6 +143,16 @@ main .container{
     padding: 1em;
     background-color: var(--card-bg);
     border-radius: .6em;
+    /* animation: inAnim 1s; */
+}
+
+.task-card .name-area{
+    display: flex;
+    justify-content: space-between;
+}
+
+.fa-window-close{
+    color: brown;
 }
 
 .task-card .card-element{
@@ -155,12 +166,16 @@ main .container{
     display: flex;
     justify-content: space-between;
 }
+.button i{
+    color: green;
+}
 
 .button button{
     color: var(--text-color);
-    background-color: #ac0606;
+    background-color: brown;
     width: 5em;
     height: 2em;
+    padding: 5px;
     border: none;
     cursor: pointer;
 }
@@ -205,3 +220,14 @@ footer a{
     color: var(--dark-label-color);
 }
 /*dark-mode end*/
+
+@keyframes inAnim{
+    from{
+        opacity: 0;
+        transform: rotateX(-60deg);
+    }
+    to{
+        opacity: 1;
+        transform: rotateX(0deg);
+    }
+}

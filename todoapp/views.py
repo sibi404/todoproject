@@ -7,10 +7,10 @@ from django.views.generic import ListView
 
 
 def home(request):
-    tasks = Task.objects.all()
+    tasks = Task.objects.all().order_by('priority')
     return render(request,'index.html',{'tasks':tasks})
 
-def taskDone(request,task_id):
+def taskDelete(request,task_id):
     task = Task.objects.get(id = task_id)
     task.delete()
     return redirect('/')
@@ -21,6 +21,13 @@ def add_task(request):
     task = Task(name = name,priority = priority)
     task.save()
     return redirect("/")
+
+def taskComplete(request,task_id):
+    task = Task.objects.get(id = task_id)
+    task.complete = True
+    task.save()
+    return redirect("/")
+
 
 # use the URL 'cvbtask/' to get the class based view below
 class TaskListView(ListView):

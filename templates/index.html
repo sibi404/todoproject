@@ -8,6 +8,7 @@
     <title>ToDo List</title>
     <link rel="stylesheet" href="{% static 'style/index.css' %}">
     <link rel="stylesheet" href="{% static 'style/media.css' %}">
+    <link rel="stylesheet" href="{% static 'style/css/font-awesome.min.css' %}">
 </head>
 <body>
     <header>
@@ -39,12 +40,21 @@
             <section class="section-2">
                 <div class="container">
                     {% for task in tasks %}
-                    <div class="task-card">
-                        <div class="name card-elment">{{task.name}}</div>
+                    <div class="task-card" id="task-card">
+                        <div class="name-area">
+                            <div class="name card-elment">{{task.name}}</div>
+                            <a href="delete/{{task.id}}"><i class="fa fa-window-close" aria-hidden="true"></i></a>
+                            <!-- <a href="delete/{{task.id}}"><button>X</button></a> -->
+                        </div>
                         <div class="priority card-element">{{task.priority}}</div>
                         <div class="date card-element">{{task.date}}</div>
                         <div class="button card-element">
-                            <a href="delete/{{task.id}}"><button>Done</button></a>
+                            {% if task.complete == True %}
+                            <!-- <a href=""><button>Complete</button></a> -->
+                            <i class="fa fa-check" aria-hidden="true"></i>
+                            {% else %}
+                            <a href="taskComplete/{{task.id}}"><button>Done</button></a>
+                            {% endif %}
                             <div class="time">{{task.time}}</div>
                         </div>
                     </div>
