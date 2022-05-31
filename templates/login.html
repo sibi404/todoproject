@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'style/login.css' %}">
+    <title>From</title>
+</head>
+<body>
+    <div class="container">
+        <div class="form-div">
+            <form method="post">
+                {% csrf_token %}
+                <div class="input-group">
+                    <input type="text" id="usr" required name="username" autocomplete="off">
+                    <label for="usr">Username</label>
+                </div>
+                <div class="input-group">
+                    <input type="Password" id="psword" name="password" required>
+                    <label for="psword">Password</label>
+                </div>
+                <div class="submit-area">
+                    <input type="submit" value="Submit">
+                </div>
+                <div class="new-user">
+                    <a href="/accounts/register">New user?</a>
+                </div>
+                {% if request.GET.next %}
+                <input type="hidden" value="{{request.GET.next}}" name = "next">
+                {% endif %}
+                {% for message in messages %}
+                <div class="message-area">{{message}}</div>
+                {% endfor %}
+            </form>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

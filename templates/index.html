@@ -13,6 +13,7 @@
 <body>
     <header>
         <h2>ToDo List</h2>
+        <a href="{% url 'logout' %}" style="color: white;">Logout</a>
     </header>
     <main>
         <div class="container">
@@ -30,6 +31,7 @@
                             <div class="submit-div">
                                 <button type="submit">ADD</button>
                             </div>
+                            <input type="hidden" value="{{request.user}}" name="username">
                         </form>
                     </div>
                     <div class="dark-mode">
@@ -46,12 +48,15 @@
                             <a href="delete/{{task.id}}"><i class="fa fa-window-close" aria-hidden="true"></i></a>
                             <!-- <a href="delete/{{task.id}}"><button>X</button></a> -->
                         </div>
-                        <div class="priority card-element">{{task.priority}}</div>
+                        <div class="priority card-element">Priority {{task.priority}}</div>
                         <div class="date card-element">{{task.date}}</div>
                         <div class="button card-element">
                             {% if task.complete == True %}
-                            <!-- <a href=""><button>Complete</button></a> -->
-                            <i class="fa fa-check" aria-hidden="true"></i>
+                            <a href="taskComplete/{{task.id}}">
+                                <i class="fa fa-check" aria-hidden="true">
+                                <span> Completed</span>
+                                </i>
+                            </a>
                             {% else %}
                             <a href="taskComplete/{{task.id}}"><button>Done</button></a>
                             {% endif %}
