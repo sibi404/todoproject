@@ -12,7 +12,6 @@ from django.shortcuts import render,get_object_or_404
 @login_required(login_url = "/accounts/login/")
 def home(request):
     tasks = Task.objects.all().order_by('priority').filter(owner = request.user)
-    # print(request.user,"AuthUser!!!!!!!")
     return render(request,'index.html',{'tasks':tasks})
 
 def taskDelete(request,task_id):

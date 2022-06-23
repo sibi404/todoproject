@@ -8,13 +8,17 @@
     <title>Accounts</title>
     <link rel="stylesheet" type="text/css" href="{% static 'style/registration.css' %}">
     <script>
+        password = document.getElementById('password2');
         function registered(){
             let p1 = document.getElementById('password1').value;
             let p2 = document.getElementById('password2').value;
             if (p1 != p2){
-                alert("Password not matching")
+                p1.value="";
+                p2.value="";
+                password.alert("Password not matching");
             }
         }
+        password.addEventListener("focusout",registered)
     </script>
 </head>
 <body>
@@ -24,19 +28,19 @@
                 {% csrf_token %}
                 <div class="input-div">
                     <label for="username">Username</label>
-                    <input type="text" name="username" id="username" required>
+                    <input type="text" name="username" id="username" required value="{{username}}">
                 </div>
                 <div class="input-div">
                     <label for="first_name">First Name</label>
-                    <input type="text" name="first_name" id="first_name" required>
+                    <input type="text" name="first_name" id="first_name" required value="{{first_name}}">
                 </div>
                 <div class="input-div">
                     <label for="last_name">Last Name</label>
-                    <input type="text" name="last_name" id="last_name" required>
+                    <input type="text" name="last_name" id="last_name" required value="{{last_name}}">
                 </div>
                 <div class="input-div">
                     <label for="email">Email</label>
-                    <input type="email" name="email" id="email" required>
+                    <input type="email" name="email" id="email" required value="{{email}}">
                 </div>
                 <div class="input-div">
                     <label for="password1">Password</label>
