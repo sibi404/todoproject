@@ -1,0 +1,243 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Outfit',sans-serif;
+}
+/* reset end */
+
+:root{
+    --text-color: whitesmoke;
+    --card-bg: #ddd9d9;
+    --header-background: darkslategrey;
+    --placeholder-color: grey;
+    --input-bg: white;
+    --input-border: lightgrey;
+    --scroll-track: whitesmoke;
+    --scroll-thumb: grey;
+    --footer-bg: #161C1C;
+    --dark-btn: #222831;
+    --dark-label-color: whitesmoke;
+}
+/* colour varriable end */
+
+/*dark-mode color*/
+.dark-theme{
+    color: white;
+    --card-bg: #222831;
+    --placeholder-color: white;
+    background-color: #393E46;
+    --input-bg: #393E46;
+    --input-border: #5e5e5e;
+    --scroll-track: #393E46;
+    --scroll-thumb: #222831;
+    --dark-label-color: black;
+}
+/* dark-mode color end */
+
+
+/*scroll bar*/
+.section-2::-webkit-scrollbar{
+    width: 1vw;
+}
+
+.section-2::-webkit-scrollbar-thumb{
+    background-color: var(--scroll-thumb);
+    border-radius: 5px;
+}
+.section-2::-webkit-scrollbar-track{
+    background-color: var(--scroll-track);
+}
+/* scroll bar end */
+
+/*header*/
+header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 9em;
+    background: var(--header-background);
+    color: var(--text-color);
+    position: relative;
+}
+/* header end */
+
+/*section-1*/
+main .container{
+    display: flex;
+}
+.section-1, .section-2{
+    width: 50%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.section-1 .container{
+    width: 100%;
+    align-items: center;
+}
+
+
+.section-1 .container .card{
+    margin-top: .6em;
+    width: 100%;
+    padding: 1em;
+    margin: 1em;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    background-color: var(--card-bg);
+    border-radius: .6em;
+}
+
+.card form{
+    width: 100%;
+}
+
+.card .input-div input{
+    width: 100%;
+    height: 2.5em;
+    margin-top: .6em;
+    padding: .4em;
+    outline: none;
+    border: solid 1px var(--input-border);
+    background-color: var(--input-bg);
+    color: var(--placeholder-color);
+}
+
+::placeholder{
+    color: var(--placeholder-color);
+}
+
+.submit-div{
+    margin-top: .6em;
+}
+
+.submit-div button{
+    width: 5em;
+    height: 2em;
+    border: none;
+    background-color: green;
+    color: var(--text-color);
+    border-radius: 8px;
+    cursor: pointer;
+}
+/* section-1 end */
+
+/*section-2*/
+.section-2{
+    height: 80vh;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+.section-2 .container{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+.task-card{
+    margin: 1em;
+    width: 100%;
+    padding: 1em;
+    background-color: var(--card-bg);
+    border-radius: .6em;
+    /* animation: inAnim 1s; */
+}
+
+.task-card .name-area{
+    display: flex;
+    justify-content: space-between;
+}
+.task-card .name-area .name{
+    font-size: large;
+}
+
+.fa-window-close{
+    color: brown;
+}
+
+.task-card .card-element{
+    margin-top: .6em;
+}
+
+.priority, .date{
+    font-size: small;
+}
+
+.button{
+    display: flex;
+    justify-content: space-between;
+}
+.button i{
+    color: green;
+    margin-left: 0;
+}
+
+.button i span{
+    font-size: small;
+}
+
+.button button{
+    color: var(--text-color);
+    background-color: brown;
+    width: 5em;
+    height: 2em;
+    padding: 5px;
+    border: none;
+    cursor: pointer;
+}
+.time{
+    font-size: small;
+}
+/* section-2 end */
+
+footer{
+    width: 100%;
+    height: 4em;
+    background-color: var(--footer-bg);
+    color: var(--text-color);
+    font-size: small;
+    font-weight: lighter;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+footer a{
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+/*dark-mode*/
+.dark-mode{
+    position: absolute;
+    /* top: 0;
+    left: 0; */
+    bottom: 20px;
+    left: 20px;
+}
+
+.dark-mode button{
+    cursor: pointer;
+    padding: 1em;
+    border-radius: .5em;
+    border: none;
+    font-weight: bold;
+    background-color: var(--dark-btn);
+    color: var(--dark-label-color);
+}
+/*dark-mode end*/
+
+@keyframes inAnim{
+    from{
+        opacity: 0;
+        transform: rotateX(-60deg);
+    }
+    to{
+        opacity: 1;
+        transform: rotateX(0deg);
+    }
+}
